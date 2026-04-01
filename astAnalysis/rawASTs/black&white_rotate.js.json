@@ -1,0 +1,2226 @@
+[
+  {
+    "type": "VariableDeclaration",
+    "start": 0,
+    "end": 22,
+    "declarations": [
+      {
+        "type": "VariableDeclarator",
+        "start": 4,
+        "end": 21,
+        "id": {
+          "type": "Identifier",
+          "start": 4,
+          "end": 15,
+          "name": "canvasWidth"
+        },
+        "init": {
+          "type": "Literal",
+          "start": 18,
+          "end": 21,
+          "value": 800,
+          "raw": "800"
+        }
+      }
+    ],
+    "kind": "let"
+  },
+  {
+    "type": "VariableDeclaration",
+    "start": 23,
+    "end": 46,
+    "declarations": [
+      {
+        "type": "VariableDeclarator",
+        "start": 27,
+        "end": 45,
+        "id": {
+          "type": "Identifier",
+          "start": 27,
+          "end": 39,
+          "name": "canvasHeight"
+        },
+        "init": {
+          "type": "Literal",
+          "start": 42,
+          "end": 45,
+          "value": 800,
+          "raw": "800"
+        }
+      }
+    ],
+    "kind": "let"
+  },
+  {
+    "type": "VariableDeclaration",
+    "start": 47,
+    "end": 60,
+    "declarations": [
+      {
+        "type": "VariableDeclarator",
+        "start": 51,
+        "end": 59,
+        "id": {
+          "type": "Identifier",
+          "start": 51,
+          "end": 59,
+          "name": "topLayer"
+        },
+        "init": null
+      }
+    ],
+    "kind": "let"
+  },
+  {
+    "type": "VariableDeclaration",
+    "start": 61,
+    "end": 77,
+    "declarations": [
+      {
+        "type": "VariableDeclarator",
+        "start": 65,
+        "end": 76,
+        "id": {
+          "type": "Identifier",
+          "start": 65,
+          "end": 76,
+          "name": "bottomLayer"
+        },
+        "init": null
+      }
+    ],
+    "kind": "let"
+  },
+  {
+    "type": "VariableDeclaration",
+    "start": 78,
+    "end": 104,
+    "declarations": [
+      {
+        "type": "VariableDeclarator",
+        "start": 82,
+        "end": 103,
+        "id": {
+          "type": "Identifier",
+          "start": 82,
+          "end": 88,
+          "name": "startX"
+        },
+        "init": {
+          "type": "UnaryExpression",
+          "start": 91,
+          "end": 103,
+          "operator": "-",
+          "prefix": true,
+          "argument": {
+            "type": "Identifier",
+            "start": 92,
+            "end": 103,
+            "name": "canvasWidth"
+          }
+        }
+      }
+    ],
+    "kind": "let"
+  },
+  {
+    "type": "VariableDeclaration",
+    "start": 125,
+    "end": 146,
+    "declarations": [
+      {
+        "type": "VariableDeclarator",
+        "start": 129,
+        "end": 145,
+        "id": {
+          "type": "Identifier",
+          "start": 129,
+          "end": 145,
+          "name": "weightDifference"
+        },
+        "init": null
+      }
+    ],
+    "kind": "let"
+  },
+  {
+    "type": "VariableDeclaration",
+    "start": 147,
+    "end": 163,
+    "declarations": [
+      {
+        "type": "VariableDeclarator",
+        "start": 151,
+        "end": 162,
+        "id": {
+          "type": "Identifier",
+          "start": 151,
+          "end": 162,
+          "name": "blackWeight"
+        },
+        "init": null
+      }
+    ],
+    "kind": "let"
+  },
+  {
+    "type": "VariableDeclaration",
+    "start": 164,
+    "end": 180,
+    "declarations": [
+      {
+        "type": "VariableDeclarator",
+        "start": 168,
+        "end": 179,
+        "id": {
+          "type": "Identifier",
+          "start": 168,
+          "end": 179,
+          "name": "whiteWeight"
+        },
+        "init": null
+      }
+    ],
+    "kind": "let"
+  },
+  {
+    "type": "VariableDeclaration",
+    "start": 181,
+    "end": 198,
+    "declarations": [
+      {
+        "type": "VariableDeclarator",
+        "start": 185,
+        "end": 197,
+        "id": {
+          "type": "Identifier",
+          "start": 185,
+          "end": 197,
+          "name": "maskGraphics"
+        },
+        "init": null
+      }
+    ],
+    "kind": "let"
+  },
+  {
+    "type": "FunctionDeclaration",
+    "start": 202,
+    "end": 1601,
+    "id": {
+      "type": "Identifier",
+      "start": 211,
+      "end": 216,
+      "name": "setup"
+    },
+    "expression": false,
+    "generator": false,
+    "async": false,
+    "params": [],
+    "body": {
+      "type": "BlockStatement",
+      "start": 219,
+      "end": 1601,
+      "body": [
+        {
+          "type": "ExpressionStatement",
+          "start": 223,
+          "end": 263,
+          "expression": {
+            "type": "CallExpression",
+            "start": 223,
+            "end": 262,
+            "callee": {
+              "type": "Identifier",
+              "start": 223,
+              "end": 235,
+              "name": "createCanvas"
+            },
+            "arguments": [
+              {
+                "type": "Identifier",
+                "start": 236,
+                "end": 247,
+                "name": "canvasWidth"
+              },
+              {
+                "type": "Identifier",
+                "start": 249,
+                "end": 261,
+                "name": "canvasHeight"
+              }
+            ]
+          }
+        },
+        {
+          "type": "ExpressionStatement",
+          "start": 267,
+          "end": 320,
+          "expression": {
+            "type": "AssignmentExpression",
+            "start": 267,
+            "end": 319,
+            "operator": "=",
+            "left": {
+              "type": "Identifier",
+              "start": 267,
+              "end": 275,
+              "name": "topLayer"
+            },
+            "right": {
+              "type": "CallExpression",
+              "start": 278,
+              "end": 319,
+              "callee": {
+                "type": "Identifier",
+                "start": 278,
+                "end": 292,
+                "name": "createGraphics"
+              },
+              "arguments": [
+                {
+                  "type": "Identifier",
+                  "start": 293,
+                  "end": 304,
+                  "name": "canvasWidth"
+                },
+                {
+                  "type": "Identifier",
+                  "start": 306,
+                  "end": 318,
+                  "name": "canvasHeight"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "ExpressionStatement",
+          "start": 324,
+          "end": 380,
+          "expression": {
+            "type": "AssignmentExpression",
+            "start": 324,
+            "end": 379,
+            "operator": "=",
+            "left": {
+              "type": "Identifier",
+              "start": 324,
+              "end": 335,
+              "name": "bottomLayer"
+            },
+            "right": {
+              "type": "CallExpression",
+              "start": 338,
+              "end": 379,
+              "callee": {
+                "type": "Identifier",
+                "start": 338,
+                "end": 352,
+                "name": "createGraphics"
+              },
+              "arguments": [
+                {
+                  "type": "Identifier",
+                  "start": 353,
+                  "end": 364,
+                  "name": "canvasWidth"
+                },
+                {
+                  "type": "Identifier",
+                  "start": 366,
+                  "end": 378,
+                  "name": "canvasHeight"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "ExpressionStatement",
+          "start": 385,
+          "end": 418,
+          "expression": {
+            "type": "AssignmentExpression",
+            "start": 385,
+            "end": 417,
+            "operator": "=",
+            "left": {
+              "type": "Identifier",
+              "start": 385,
+              "end": 401,
+              "name": "weightDifference"
+            },
+            "right": {
+              "type": "CallExpression",
+              "start": 404,
+              "end": 417,
+              "callee": {
+                "type": "Identifier",
+                "start": 404,
+                "end": 410,
+                "name": "random"
+              },
+              "arguments": [
+                {
+                  "type": "UnaryExpression",
+                  "start": 411,
+                  "end": 413,
+                  "operator": "-",
+                  "prefix": true,
+                  "argument": {
+                    "type": "Literal",
+                    "start": 412,
+                    "end": 413,
+                    "value": 5,
+                    "raw": "5"
+                  }
+                },
+                {
+                  "type": "Literal",
+                  "start": 415,
+                  "end": 416,
+                  "value": 5,
+                  "raw": "5"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "ExpressionStatement",
+          "start": 421,
+          "end": 449,
+          "expression": {
+            "type": "AssignmentExpression",
+            "start": 421,
+            "end": 448,
+            "operator": "=",
+            "left": {
+              "type": "Identifier",
+              "start": 421,
+              "end": 432,
+              "name": "blackWeight"
+            },
+            "right": {
+              "type": "CallExpression",
+              "start": 435,
+              "end": 448,
+              "callee": {
+                "type": "Identifier",
+                "start": 435,
+                "end": 441,
+                "name": "random"
+              },
+              "arguments": [
+                {
+                  "type": "Literal",
+                  "start": 442,
+                  "end": 443,
+                  "value": 5,
+                  "raw": "5"
+                },
+                {
+                  "type": "Literal",
+                  "start": 445,
+                  "end": 447,
+                  "value": 20,
+                  "raw": "20"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "ExpressionStatement",
+          "start": 452,
+          "end": 497,
+          "expression": {
+            "type": "AssignmentExpression",
+            "start": 452,
+            "end": 496,
+            "operator": "=",
+            "left": {
+              "type": "Identifier",
+              "start": 452,
+              "end": 463,
+              "name": "whiteWeight"
+            },
+            "right": {
+              "type": "BinaryExpression",
+              "start": 466,
+              "end": 496,
+              "left": {
+                "type": "Identifier",
+                "start": 466,
+                "end": 477,
+                "name": "blackWeight"
+              },
+              "operator": "+",
+              "right": {
+                "type": "Identifier",
+                "start": 480,
+                "end": 496,
+                "name": "weightDifference"
+              }
+            }
+          }
+        },
+        {
+          "type": "ExpressionStatement",
+          "start": 501,
+          "end": 523,
+          "expression": {
+            "type": "AssignmentExpression",
+            "start": 501,
+            "end": 522,
+            "operator": "=",
+            "left": {
+              "type": "Identifier",
+              "start": 501,
+              "end": 507,
+              "name": "startX"
+            },
+            "right": {
+              "type": "UnaryExpression",
+              "start": 510,
+              "end": 522,
+              "operator": "-",
+              "prefix": true,
+              "argument": {
+                "type": "Identifier",
+                "start": 511,
+                "end": 522,
+                "name": "canvasWidth"
+              }
+            }
+          }
+        },
+        {
+          "type": "WhileStatement",
+          "start": 591,
+          "end": 992,
+          "test": {
+            "type": "BinaryExpression",
+            "start": 598,
+            "end": 618,
+            "left": {
+              "type": "Identifier",
+              "start": 598,
+              "end": 604,
+              "name": "startX"
+            },
+            "operator": "<",
+            "right": {
+              "type": "Identifier",
+              "start": 607,
+              "end": 618,
+              "name": "canvasWidth"
+            }
+          },
+          "body": {
+            "type": "BlockStatement",
+            "start": 620,
+            "end": 992,
+            "body": [
+              {
+                "type": "ExpressionStatement",
+                "start": 651,
+                "end": 670,
+                "expression": {
+                  "type": "CallExpression",
+                  "start": 651,
+                  "end": 669,
+                  "callee": {
+                    "type": "MemberExpression",
+                    "start": 651,
+                    "end": 666,
+                    "object": {
+                      "type": "Identifier",
+                      "start": 651,
+                      "end": 659,
+                      "name": "topLayer"
+                    },
+                    "property": {
+                      "type": "Identifier",
+                      "start": 660,
+                      "end": 666,
+                      "name": "stroke"
+                    },
+                    "computed": false
+                  },
+                  "arguments": [
+                    {
+                      "type": "Literal",
+                      "start": 667,
+                      "end": 668,
+                      "value": 0,
+                      "raw": "0"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "start": 675,
+                "end": 710,
+                "expression": {
+                  "type": "CallExpression",
+                  "start": 675,
+                  "end": 709,
+                  "callee": {
+                    "type": "MemberExpression",
+                    "start": 675,
+                    "end": 696,
+                    "object": {
+                      "type": "Identifier",
+                      "start": 675,
+                      "end": 683,
+                      "name": "topLayer"
+                    },
+                    "property": {
+                      "type": "Identifier",
+                      "start": 684,
+                      "end": 696,
+                      "name": "strokeWeight"
+                    },
+                    "computed": false
+                  },
+                  "arguments": [
+                    {
+                      "type": "Identifier",
+                      "start": 697,
+                      "end": 708,
+                      "name": "blackWeight"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "start": 715,
+                "end": 776,
+                "expression": {
+                  "type": "CallExpression",
+                  "start": 715,
+                  "end": 775,
+                  "callee": {
+                    "type": "MemberExpression",
+                    "start": 715,
+                    "end": 728,
+                    "object": {
+                      "type": "Identifier",
+                      "start": 715,
+                      "end": 723,
+                      "name": "topLayer"
+                    },
+                    "property": {
+                      "type": "Identifier",
+                      "start": 724,
+                      "end": 728,
+                      "name": "line"
+                    },
+                    "computed": false
+                  },
+                  "arguments": [
+                    {
+                      "type": "Identifier",
+                      "start": 729,
+                      "end": 735,
+                      "name": "startX"
+                    },
+                    {
+                      "type": "Literal",
+                      "start": 737,
+                      "end": 738,
+                      "value": 0,
+                      "raw": "0"
+                    },
+                    {
+                      "type": "BinaryExpression",
+                      "start": 740,
+                      "end": 760,
+                      "left": {
+                        "type": "Identifier",
+                        "start": 740,
+                        "end": 746,
+                        "name": "startX"
+                      },
+                      "operator": "+",
+                      "right": {
+                        "type": "Identifier",
+                        "start": 749,
+                        "end": 760,
+                        "name": "canvasWidth"
+                      }
+                    },
+                    {
+                      "type": "Identifier",
+                      "start": 762,
+                      "end": 774,
+                      "name": "canvasHeight"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "start": 781,
+                "end": 803,
+                "expression": {
+                  "type": "AssignmentExpression",
+                  "start": 781,
+                  "end": 802,
+                  "operator": "+=",
+                  "left": {
+                    "type": "Identifier",
+                    "start": 781,
+                    "end": 787,
+                    "name": "startX"
+                  },
+                  "right": {
+                    "type": "Identifier",
+                    "start": 791,
+                    "end": 802,
+                    "name": "blackWeight"
+                  }
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "start": 834,
+                "end": 855,
+                "expression": {
+                  "type": "CallExpression",
+                  "start": 834,
+                  "end": 854,
+                  "callee": {
+                    "type": "MemberExpression",
+                    "start": 834,
+                    "end": 849,
+                    "object": {
+                      "type": "Identifier",
+                      "start": 834,
+                      "end": 842,
+                      "name": "topLayer"
+                    },
+                    "property": {
+                      "type": "Identifier",
+                      "start": 843,
+                      "end": 849,
+                      "name": "stroke"
+                    },
+                    "computed": false
+                  },
+                  "arguments": [
+                    {
+                      "type": "Literal",
+                      "start": 850,
+                      "end": 853,
+                      "value": 255,
+                      "raw": "255"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "start": 860,
+                "end": 895,
+                "expression": {
+                  "type": "CallExpression",
+                  "start": 860,
+                  "end": 894,
+                  "callee": {
+                    "type": "MemberExpression",
+                    "start": 860,
+                    "end": 881,
+                    "object": {
+                      "type": "Identifier",
+                      "start": 860,
+                      "end": 868,
+                      "name": "topLayer"
+                    },
+                    "property": {
+                      "type": "Identifier",
+                      "start": 869,
+                      "end": 881,
+                      "name": "strokeWeight"
+                    },
+                    "computed": false
+                  },
+                  "arguments": [
+                    {
+                      "type": "Identifier",
+                      "start": 882,
+                      "end": 893,
+                      "name": "whiteWeight"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "start": 900,
+                "end": 961,
+                "expression": {
+                  "type": "CallExpression",
+                  "start": 900,
+                  "end": 960,
+                  "callee": {
+                    "type": "MemberExpression",
+                    "start": 900,
+                    "end": 913,
+                    "object": {
+                      "type": "Identifier",
+                      "start": 900,
+                      "end": 908,
+                      "name": "topLayer"
+                    },
+                    "property": {
+                      "type": "Identifier",
+                      "start": 909,
+                      "end": 913,
+                      "name": "line"
+                    },
+                    "computed": false
+                  },
+                  "arguments": [
+                    {
+                      "type": "Identifier",
+                      "start": 914,
+                      "end": 920,
+                      "name": "startX"
+                    },
+                    {
+                      "type": "Literal",
+                      "start": 922,
+                      "end": 923,
+                      "value": 0,
+                      "raw": "0"
+                    },
+                    {
+                      "type": "BinaryExpression",
+                      "start": 925,
+                      "end": 945,
+                      "left": {
+                        "type": "Identifier",
+                        "start": 925,
+                        "end": 931,
+                        "name": "startX"
+                      },
+                      "operator": "+",
+                      "right": {
+                        "type": "Identifier",
+                        "start": 934,
+                        "end": 945,
+                        "name": "canvasWidth"
+                      }
+                    },
+                    {
+                      "type": "Identifier",
+                      "start": 947,
+                      "end": 959,
+                      "name": "canvasHeight"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "start": 966,
+                "end": 988,
+                "expression": {
+                  "type": "AssignmentExpression",
+                  "start": 966,
+                  "end": 987,
+                  "operator": "+=",
+                  "left": {
+                    "type": "Identifier",
+                    "start": 966,
+                    "end": 972,
+                    "name": "startX"
+                  },
+                  "right": {
+                    "type": "Identifier",
+                    "start": 976,
+                    "end": 987,
+                    "name": "whiteWeight"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "ExpressionStatement",
+          "start": 996,
+          "end": 1018,
+          "expression": {
+            "type": "AssignmentExpression",
+            "start": 996,
+            "end": 1017,
+            "operator": "=",
+            "left": {
+              "type": "Identifier",
+              "start": 996,
+              "end": 1002,
+              "name": "startX"
+            },
+            "right": {
+              "type": "UnaryExpression",
+              "start": 1005,
+              "end": 1017,
+              "operator": "-",
+              "prefix": true,
+              "argument": {
+                "type": "Identifier",
+                "start": 1006,
+                "end": 1017,
+                "name": "canvasWidth"
+              }
+            }
+          }
+        },
+        {
+          "type": "WhileStatement",
+          "start": 1129,
+          "end": 1548,
+          "test": {
+            "type": "BinaryExpression",
+            "start": 1136,
+            "end": 1156,
+            "left": {
+              "type": "Identifier",
+              "start": 1136,
+              "end": 1142,
+              "name": "startX"
+            },
+            "operator": "<",
+            "right": {
+              "type": "Identifier",
+              "start": 1145,
+              "end": 1156,
+              "name": "canvasWidth"
+            }
+          },
+          "body": {
+            "type": "BlockStatement",
+            "start": 1158,
+            "end": 1548,
+            "body": [
+              {
+                "type": "ExpressionStatement",
+                "start": 1189,
+                "end": 1213,
+                "expression": {
+                  "type": "CallExpression",
+                  "start": 1189,
+                  "end": 1212,
+                  "callee": {
+                    "type": "MemberExpression",
+                    "start": 1189,
+                    "end": 1207,
+                    "object": {
+                      "type": "Identifier",
+                      "start": 1189,
+                      "end": 1200,
+                      "name": "bottomLayer"
+                    },
+                    "property": {
+                      "type": "Identifier",
+                      "start": 1201,
+                      "end": 1207,
+                      "name": "stroke"
+                    },
+                    "computed": false
+                  },
+                  "arguments": [
+                    {
+                      "type": "Literal",
+                      "start": 1208,
+                      "end": 1211,
+                      "value": 255,
+                      "raw": "255"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "start": 1218,
+                "end": 1256,
+                "expression": {
+                  "type": "CallExpression",
+                  "start": 1218,
+                  "end": 1255,
+                  "callee": {
+                    "type": "MemberExpression",
+                    "start": 1218,
+                    "end": 1242,
+                    "object": {
+                      "type": "Identifier",
+                      "start": 1218,
+                      "end": 1229,
+                      "name": "bottomLayer"
+                    },
+                    "property": {
+                      "type": "Identifier",
+                      "start": 1230,
+                      "end": 1242,
+                      "name": "strokeWeight"
+                    },
+                    "computed": false
+                  },
+                  "arguments": [
+                    {
+                      "type": "Identifier",
+                      "start": 1243,
+                      "end": 1254,
+                      "name": "blackWeight"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "start": 1261,
+                "end": 1325,
+                "expression": {
+                  "type": "CallExpression",
+                  "start": 1261,
+                  "end": 1324,
+                  "callee": {
+                    "type": "MemberExpression",
+                    "start": 1261,
+                    "end": 1277,
+                    "object": {
+                      "type": "Identifier",
+                      "start": 1261,
+                      "end": 1272,
+                      "name": "bottomLayer"
+                    },
+                    "property": {
+                      "type": "Identifier",
+                      "start": 1273,
+                      "end": 1277,
+                      "name": "line"
+                    },
+                    "computed": false
+                  },
+                  "arguments": [
+                    {
+                      "type": "Identifier",
+                      "start": 1278,
+                      "end": 1284,
+                      "name": "startX"
+                    },
+                    {
+                      "type": "Identifier",
+                      "start": 1286,
+                      "end": 1298,
+                      "name": "canvasHeight"
+                    },
+                    {
+                      "type": "BinaryExpression",
+                      "start": 1300,
+                      "end": 1320,
+                      "left": {
+                        "type": "Identifier",
+                        "start": 1300,
+                        "end": 1306,
+                        "name": "startX"
+                      },
+                      "operator": "+",
+                      "right": {
+                        "type": "Identifier",
+                        "start": 1309,
+                        "end": 1320,
+                        "name": "canvasWidth"
+                      }
+                    },
+                    {
+                      "type": "Literal",
+                      "start": 1322,
+                      "end": 1323,
+                      "value": 0,
+                      "raw": "0"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "start": 1330,
+                "end": 1352,
+                "expression": {
+                  "type": "AssignmentExpression",
+                  "start": 1330,
+                  "end": 1351,
+                  "operator": "+=",
+                  "left": {
+                    "type": "Identifier",
+                    "start": 1330,
+                    "end": 1336,
+                    "name": "startX"
+                  },
+                  "right": {
+                    "type": "Identifier",
+                    "start": 1340,
+                    "end": 1351,
+                    "name": "blackWeight"
+                  }
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "start": 1383,
+                "end": 1405,
+                "expression": {
+                  "type": "CallExpression",
+                  "start": 1383,
+                  "end": 1404,
+                  "callee": {
+                    "type": "MemberExpression",
+                    "start": 1383,
+                    "end": 1401,
+                    "object": {
+                      "type": "Identifier",
+                      "start": 1383,
+                      "end": 1394,
+                      "name": "bottomLayer"
+                    },
+                    "property": {
+                      "type": "Identifier",
+                      "start": 1395,
+                      "end": 1401,
+                      "name": "stroke"
+                    },
+                    "computed": false
+                  },
+                  "arguments": [
+                    {
+                      "type": "Literal",
+                      "start": 1402,
+                      "end": 1403,
+                      "value": 0,
+                      "raw": "0"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "start": 1410,
+                "end": 1448,
+                "expression": {
+                  "type": "CallExpression",
+                  "start": 1410,
+                  "end": 1447,
+                  "callee": {
+                    "type": "MemberExpression",
+                    "start": 1410,
+                    "end": 1434,
+                    "object": {
+                      "type": "Identifier",
+                      "start": 1410,
+                      "end": 1421,
+                      "name": "bottomLayer"
+                    },
+                    "property": {
+                      "type": "Identifier",
+                      "start": 1422,
+                      "end": 1434,
+                      "name": "strokeWeight"
+                    },
+                    "computed": false
+                  },
+                  "arguments": [
+                    {
+                      "type": "Identifier",
+                      "start": 1435,
+                      "end": 1446,
+                      "name": "whiteWeight"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "start": 1453,
+                "end": 1517,
+                "expression": {
+                  "type": "CallExpression",
+                  "start": 1453,
+                  "end": 1516,
+                  "callee": {
+                    "type": "MemberExpression",
+                    "start": 1453,
+                    "end": 1469,
+                    "object": {
+                      "type": "Identifier",
+                      "start": 1453,
+                      "end": 1464,
+                      "name": "bottomLayer"
+                    },
+                    "property": {
+                      "type": "Identifier",
+                      "start": 1465,
+                      "end": 1469,
+                      "name": "line"
+                    },
+                    "computed": false
+                  },
+                  "arguments": [
+                    {
+                      "type": "Identifier",
+                      "start": 1470,
+                      "end": 1476,
+                      "name": "startX"
+                    },
+                    {
+                      "type": "Identifier",
+                      "start": 1478,
+                      "end": 1490,
+                      "name": "canvasHeight"
+                    },
+                    {
+                      "type": "BinaryExpression",
+                      "start": 1492,
+                      "end": 1512,
+                      "left": {
+                        "type": "Identifier",
+                        "start": 1492,
+                        "end": 1498,
+                        "name": "startX"
+                      },
+                      "operator": "+",
+                      "right": {
+                        "type": "Identifier",
+                        "start": 1501,
+                        "end": 1512,
+                        "name": "canvasWidth"
+                      }
+                    },
+                    {
+                      "type": "Literal",
+                      "start": 1514,
+                      "end": 1515,
+                      "value": 0,
+                      "raw": "0"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "start": 1522,
+                "end": 1544,
+                "expression": {
+                  "type": "AssignmentExpression",
+                  "start": 1522,
+                  "end": 1543,
+                  "operator": "+=",
+                  "left": {
+                    "type": "Identifier",
+                    "start": 1522,
+                    "end": 1528,
+                    "name": "startX"
+                  },
+                  "right": {
+                    "type": "Identifier",
+                    "start": 1532,
+                    "end": 1543,
+                    "name": "whiteWeight"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "ExpressionStatement",
+          "start": 1554,
+          "end": 1599,
+          "expression": {
+            "type": "AssignmentExpression",
+            "start": 1554,
+            "end": 1598,
+            "operator": "=",
+            "left": {
+              "type": "Identifier",
+              "start": 1554,
+              "end": 1566,
+              "name": "maskGraphics"
+            },
+            "right": {
+              "type": "CallExpression",
+              "start": 1569,
+              "end": 1598,
+              "callee": {
+                "type": "Identifier",
+                "start": 1569,
+                "end": 1583,
+                "name": "createGraphics"
+              },
+              "arguments": [
+                {
+                  "type": "Identifier",
+                  "start": 1584,
+                  "end": 1589,
+                  "name": "width"
+                },
+                {
+                  "type": "Identifier",
+                  "start": 1591,
+                  "end": 1597,
+                  "name": "height"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "FunctionDeclaration",
+    "start": 1603,
+    "end": 2935,
+    "id": {
+      "type": "Identifier",
+      "start": 1612,
+      "end": 1616,
+      "name": "draw"
+    },
+    "expression": false,
+    "generator": false,
+    "async": false,
+    "params": [],
+    "body": {
+      "type": "BlockStatement",
+      "start": 1619,
+      "end": 2935,
+      "body": [
+        {
+          "type": "ExpressionStatement",
+          "start": 1623,
+          "end": 1645,
+          "expression": {
+            "type": "CallExpression",
+            "start": 1623,
+            "end": 1644,
+            "callee": {
+              "type": "Identifier",
+              "start": 1623,
+              "end": 1628,
+              "name": "image"
+            },
+            "arguments": [
+              {
+                "type": "Identifier",
+                "start": 1629,
+                "end": 1637,
+                "name": "topLayer"
+              },
+              {
+                "type": "Literal",
+                "start": 1639,
+                "end": 1640,
+                "value": 0,
+                "raw": "0"
+              },
+              {
+                "type": "Literal",
+                "start": 1642,
+                "end": 1643,
+                "value": 0,
+                "raw": "0"
+              }
+            ]
+          }
+        },
+        {
+          "type": "ExpressionStatement",
+          "start": 1649,
+          "end": 1674,
+          "expression": {
+            "type": "CallExpression",
+            "start": 1649,
+            "end": 1673,
+            "callee": {
+              "type": "Identifier",
+              "start": 1649,
+              "end": 1654,
+              "name": "image"
+            },
+            "arguments": [
+              {
+                "type": "Identifier",
+                "start": 1655,
+                "end": 1666,
+                "name": "bottomLayer"
+              },
+              {
+                "type": "Literal",
+                "start": 1668,
+                "end": 1669,
+                "value": 0,
+                "raw": "0"
+              },
+              {
+                "type": "Literal",
+                "start": 1671,
+                "end": 1672,
+                "value": 0,
+                "raw": "0"
+              }
+            ]
+          }
+        },
+        {
+          "type": "ExpressionStatement",
+          "start": 1739,
+          "end": 1760,
+          "expression": {
+            "type": "CallExpression",
+            "start": 1739,
+            "end": 1759,
+            "callee": {
+              "type": "MemberExpression",
+              "start": 1739,
+              "end": 1757,
+              "object": {
+                "type": "Identifier",
+                "start": 1739,
+                "end": 1751,
+                "name": "maskGraphics"
+              },
+              "property": {
+                "type": "Identifier",
+                "start": 1752,
+                "end": 1757,
+                "name": "clear"
+              },
+              "computed": false
+            },
+            "arguments": []
+          }
+        },
+        {
+          "type": "ExpressionStatement",
+          "start": 1788,
+          "end": 1811,
+          "expression": {
+            "type": "CallExpression",
+            "start": 1788,
+            "end": 1810,
+            "callee": {
+              "type": "MemberExpression",
+              "start": 1788,
+              "end": 1805,
+              "object": {
+                "type": "Identifier",
+                "start": 1788,
+                "end": 1800,
+                "name": "maskGraphics"
+              },
+              "property": {
+                "type": "Identifier",
+                "start": 1801,
+                "end": 1805,
+                "name": "fill"
+              },
+              "computed": false
+            },
+            "arguments": [
+              {
+                "type": "Literal",
+                "start": 1806,
+                "end": 1809,
+                "value": 255,
+                "raw": "255"
+              }
+            ]
+          }
+        },
+        {
+          "type": "ExpressionStatement",
+          "start": 1854,
+          "end": 1874,
+          "expression": {
+            "type": "CallExpression",
+            "start": 1854,
+            "end": 1873,
+            "callee": {
+              "type": "MemberExpression",
+              "start": 1854,
+              "end": 1871,
+              "object": {
+                "type": "Identifier",
+                "start": 1854,
+                "end": 1866,
+                "name": "maskGraphics"
+              },
+              "property": {
+                "type": "Identifier",
+                "start": 1867,
+                "end": 1871,
+                "name": "push"
+              },
+              "computed": false
+            },
+            "arguments": []
+          }
+        },
+        {
+          "type": "ExpressionStatement",
+          "start": 1926,
+          "end": 1984,
+          "expression": {
+            "type": "CallExpression",
+            "start": 1926,
+            "end": 1983,
+            "callee": {
+              "type": "MemberExpression",
+              "start": 1926,
+              "end": 1948,
+              "object": {
+                "type": "Identifier",
+                "start": 1926,
+                "end": 1938,
+                "name": "maskGraphics"
+              },
+              "property": {
+                "type": "Identifier",
+                "start": 1939,
+                "end": 1948,
+                "name": "translate"
+              },
+              "computed": false
+            },
+            "arguments": [
+              {
+                "type": "BinaryExpression",
+                "start": 1949,
+                "end": 1964,
+                "left": {
+                  "type": "Identifier",
+                  "start": 1949,
+                  "end": 1960,
+                  "name": "canvasWidth"
+                },
+                "operator": "/",
+                "right": {
+                  "type": "Literal",
+                  "start": 1963,
+                  "end": 1964,
+                  "value": 2,
+                  "raw": "2"
+                }
+              },
+              {
+                "type": "BinaryExpression",
+                "start": 1966,
+                "end": 1982,
+                "left": {
+                  "type": "Identifier",
+                  "start": 1966,
+                  "end": 1978,
+                  "name": "canvasHeight"
+                },
+                "operator": "/",
+                "right": {
+                  "type": "Literal",
+                  "start": 1981,
+                  "end": 1982,
+                  "value": 2,
+                  "raw": "2"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "VariableDeclaration",
+          "start": 2007,
+          "end": 2037,
+          "declarations": [
+            {
+              "type": "VariableDeclarator",
+              "start": 2011,
+              "end": 2036,
+              "id": {
+                "type": "Identifier",
+                "start": 2011,
+                "end": 2016,
+                "name": "angle"
+              },
+              "init": {
+                "type": "BinaryExpression",
+                "start": 2019,
+                "end": 2036,
+                "left": {
+                  "type": "Identifier",
+                  "start": 2019,
+                  "end": 2029,
+                  "name": "frameCount"
+                },
+                "operator": "*",
+                "right": {
+                  "type": "Literal",
+                  "start": 2032,
+                  "end": 2036,
+                  "value": 0.01,
+                  "raw": "0.01"
+                }
+              }
+            }
+          ],
+          "kind": "let"
+        },
+        {
+          "type": "ExpressionStatement",
+          "start": 2089,
+          "end": 2116,
+          "expression": {
+            "type": "CallExpression",
+            "start": 2089,
+            "end": 2115,
+            "callee": {
+              "type": "MemberExpression",
+              "start": 2089,
+              "end": 2108,
+              "object": {
+                "type": "Identifier",
+                "start": 2089,
+                "end": 2101,
+                "name": "maskGraphics"
+              },
+              "property": {
+                "type": "Identifier",
+                "start": 2102,
+                "end": 2108,
+                "name": "rotate"
+              },
+              "computed": false
+            },
+            "arguments": [
+              {
+                "type": "Identifier",
+                "start": 2109,
+                "end": 2114,
+                "name": "angle"
+              }
+            ]
+          }
+        },
+        {
+          "type": "ExpressionStatement",
+          "start": 2169,
+          "end": 2229,
+          "expression": {
+            "type": "CallExpression",
+            "start": 2169,
+            "end": 2228,
+            "callee": {
+              "type": "MemberExpression",
+              "start": 2169,
+              "end": 2191,
+              "object": {
+                "type": "Identifier",
+                "start": 2169,
+                "end": 2181,
+                "name": "maskGraphics"
+              },
+              "property": {
+                "type": "Identifier",
+                "start": 2182,
+                "end": 2191,
+                "name": "translate"
+              },
+              "computed": false
+            },
+            "arguments": [
+              {
+                "type": "BinaryExpression",
+                "start": 2192,
+                "end": 2208,
+                "left": {
+                  "type": "UnaryExpression",
+                  "start": 2192,
+                  "end": 2204,
+                  "operator": "-",
+                  "prefix": true,
+                  "argument": {
+                    "type": "Identifier",
+                    "start": 2193,
+                    "end": 2204,
+                    "name": "canvasWidth"
+                  }
+                },
+                "operator": "/",
+                "right": {
+                  "type": "Literal",
+                  "start": 2207,
+                  "end": 2208,
+                  "value": 2,
+                  "raw": "2"
+                }
+              },
+              {
+                "type": "BinaryExpression",
+                "start": 2210,
+                "end": 2227,
+                "left": {
+                  "type": "UnaryExpression",
+                  "start": 2210,
+                  "end": 2223,
+                  "operator": "-",
+                  "prefix": true,
+                  "argument": {
+                    "type": "Identifier",
+                    "start": 2211,
+                    "end": 2223,
+                    "name": "canvasHeight"
+                  }
+                },
+                "operator": "/",
+                "right": {
+                  "type": "Literal",
+                  "start": 2226,
+                  "end": 2227,
+                  "value": 2,
+                  "raw": "2"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "VariableDeclaration",
+          "start": 2251,
+          "end": 2283,
+          "declarations": [
+            {
+              "type": "VariableDeclarator",
+              "start": 2255,
+              "end": 2282,
+              "id": {
+                "type": "Identifier",
+                "start": 2255,
+                "end": 2264,
+                "name": "halfWidth"
+              },
+              "init": {
+                "type": "BinaryExpression",
+                "start": 2267,
+                "end": 2282,
+                "left": {
+                  "type": "Identifier",
+                  "start": 2267,
+                  "end": 2278,
+                  "name": "canvasWidth"
+                },
+                "operator": "/",
+                "right": {
+                  "type": "Literal",
+                  "start": 2281,
+                  "end": 2282,
+                  "value": 2,
+                  "raw": "2"
+                }
+              }
+            }
+          ],
+          "kind": "let"
+        },
+        {
+          "type": "ExpressionStatement",
+          "start": 2286,
+          "end": 2331,
+          "expression": {
+            "type": "CallExpression",
+            "start": 2286,
+            "end": 2330,
+            "callee": {
+              "type": "MemberExpression",
+              "start": 2286,
+              "end": 2305,
+              "object": {
+                "type": "Identifier",
+                "start": 2286,
+                "end": 2298,
+                "name": "maskGraphics"
+              },
+              "property": {
+                "type": "Identifier",
+                "start": 2299,
+                "end": 2305,
+                "name": "square"
+              },
+              "computed": false
+            },
+            "arguments": [
+              {
+                "type": "Identifier",
+                "start": 2306,
+                "end": 2315,
+                "name": "halfWidth"
+              },
+              {
+                "type": "Literal",
+                "start": 2317,
+                "end": 2318,
+                "value": 0,
+                "raw": "0"
+              },
+              {
+                "type": "Identifier",
+                "start": 2320,
+                "end": 2329,
+                "name": "halfWidth"
+              }
+            ]
+          }
+        },
+        {
+          "type": "ExpressionStatement",
+          "start": 2334,
+          "end": 2379,
+          "expression": {
+            "type": "CallExpression",
+            "start": 2334,
+            "end": 2378,
+            "callee": {
+              "type": "MemberExpression",
+              "start": 2334,
+              "end": 2353,
+              "object": {
+                "type": "Identifier",
+                "start": 2334,
+                "end": 2346,
+                "name": "maskGraphics"
+              },
+              "property": {
+                "type": "Identifier",
+                "start": 2347,
+                "end": 2353,
+                "name": "square"
+              },
+              "computed": false
+            },
+            "arguments": [
+              {
+                "type": "Literal",
+                "start": 2354,
+                "end": 2355,
+                "value": 0,
+                "raw": "0"
+              },
+              {
+                "type": "Identifier",
+                "start": 2357,
+                "end": 2366,
+                "name": "halfWidth"
+              },
+              {
+                "type": "Identifier",
+                "start": 2368,
+                "end": 2377,
+                "name": "halfWidth"
+              }
+            ]
+          }
+        },
+        {
+          "type": "ExpressionStatement",
+          "start": 2383,
+          "end": 2402,
+          "expression": {
+            "type": "CallExpression",
+            "start": 2383,
+            "end": 2401,
+            "callee": {
+              "type": "MemberExpression",
+              "start": 2383,
+              "end": 2399,
+              "object": {
+                "type": "Identifier",
+                "start": 2383,
+                "end": 2395,
+                "name": "maskGraphics"
+              },
+              "property": {
+                "type": "Identifier",
+                "start": 2396,
+                "end": 2399,
+                "name": "pop"
+              },
+              "computed": false
+            },
+            "arguments": []
+          }
+        },
+        {
+          "type": "VariableDeclaration",
+          "start": 2443,
+          "end": 2476,
+          "declarations": [
+            {
+              "type": "VariableDeclarator",
+              "start": 2447,
+              "end": 2475,
+              "id": {
+                "type": "Identifier",
+                "start": 2447,
+                "end": 2458,
+                "name": "maskedLayer"
+              },
+              "init": {
+                "type": "CallExpression",
+                "start": 2461,
+                "end": 2475,
+                "callee": {
+                  "type": "MemberExpression",
+                  "start": 2461,
+                  "end": 2473,
+                  "object": {
+                    "type": "Identifier",
+                    "start": 2461,
+                    "end": 2469,
+                    "name": "topLayer"
+                  },
+                  "property": {
+                    "type": "Identifier",
+                    "start": 2470,
+                    "end": 2473,
+                    "name": "get"
+                  },
+                  "computed": false
+                },
+                "arguments": []
+              }
+            }
+          ],
+          "kind": "let"
+        },
+        {
+          "type": "ExpressionStatement",
+          "start": 2510,
+          "end": 2541,
+          "expression": {
+            "type": "CallExpression",
+            "start": 2510,
+            "end": 2540,
+            "callee": {
+              "type": "MemberExpression",
+              "start": 2510,
+              "end": 2526,
+              "object": {
+                "type": "Identifier",
+                "start": 2510,
+                "end": 2521,
+                "name": "maskedLayer"
+              },
+              "property": {
+                "type": "Identifier",
+                "start": 2522,
+                "end": 2526,
+                "name": "mask"
+              },
+              "computed": false
+            },
+            "arguments": [
+              {
+                "type": "Identifier",
+                "start": 2527,
+                "end": 2539,
+                "name": "maskGraphics"
+              }
+            ]
+          }
+        },
+        {
+          "type": "ExpressionStatement",
+          "start": 2576,
+          "end": 2601,
+          "expression": {
+            "type": "CallExpression",
+            "start": 2576,
+            "end": 2600,
+            "callee": {
+              "type": "Identifier",
+              "start": 2576,
+              "end": 2581,
+              "name": "image"
+            },
+            "arguments": [
+              {
+                "type": "Identifier",
+                "start": 2582,
+                "end": 2593,
+                "name": "maskedLayer"
+              },
+              {
+                "type": "Literal",
+                "start": 2595,
+                "end": 2596,
+                "value": 0,
+                "raw": "0"
+              },
+              {
+                "type": "Literal",
+                "start": 2598,
+                "end": 2599,
+                "value": 0,
+                "raw": "0"
+              }
+            ]
+          }
+        },
+        {
+          "type": "ExpressionStatement",
+          "start": 2654,
+          "end": 2665,
+          "expression": {
+            "type": "CallExpression",
+            "start": 2654,
+            "end": 2664,
+            "callee": {
+              "type": "Identifier",
+              "start": 2654,
+              "end": 2662,
+              "name": "noStroke"
+            },
+            "arguments": []
+          }
+        },
+        {
+          "type": "ExpressionStatement",
+          "start": 2668,
+          "end": 2711,
+          "expression": {
+            "type": "CallExpression",
+            "start": 2668,
+            "end": 2710,
+            "callee": {
+              "type": "Identifier",
+              "start": 2668,
+              "end": 2676,
+              "name": "triangle"
+            },
+            "arguments": [
+              {
+                "type": "Literal",
+                "start": 2677,
+                "end": 2678,
+                "value": 0,
+                "raw": "0"
+              },
+              {
+                "type": "Literal",
+                "start": 2680,
+                "end": 2681,
+                "value": 0,
+                "raw": "0"
+              },
+              {
+                "type": "Identifier",
+                "start": 2683,
+                "end": 2692,
+                "name": "halfWidth"
+              },
+              {
+                "type": "Literal",
+                "start": 2694,
+                "end": 2695,
+                "value": 0,
+                "raw": "0"
+              },
+              {
+                "type": "Literal",
+                "start": 2697,
+                "end": 2698,
+                "value": 0,
+                "raw": "0"
+              },
+              {
+                "type": "Identifier",
+                "start": 2700,
+                "end": 2709,
+                "name": "halfWidth"
+              }
+            ]
+          }
+        },
+        {
+          "type": "ExpressionStatement",
+          "start": 2714,
+          "end": 2779,
+          "expression": {
+            "type": "CallExpression",
+            "start": 2714,
+            "end": 2778,
+            "callee": {
+              "type": "Identifier",
+              "start": 2714,
+              "end": 2722,
+              "name": "triangle"
+            },
+            "arguments": [
+              {
+                "type": "Literal",
+                "start": 2723,
+                "end": 2724,
+                "value": 0,
+                "raw": "0"
+              },
+              {
+                "type": "Identifier",
+                "start": 2726,
+                "end": 2735,
+                "name": "halfWidth"
+              },
+              {
+                "type": "Literal",
+                "start": 2737,
+                "end": 2738,
+                "value": 0,
+                "raw": "0"
+              },
+              {
+                "type": "Identifier",
+                "start": 2740,
+                "end": 2752,
+                "name": "canvasHeight"
+              },
+              {
+                "type": "Identifier",
+                "start": 2754,
+                "end": 2763,
+                "name": "halfWidth"
+              },
+              {
+                "type": "Identifier",
+                "start": 2765,
+                "end": 2777,
+                "name": "canvasHeight"
+              }
+            ]
+          }
+        },
+        {
+          "type": "ExpressionStatement",
+          "start": 2782,
+          "end": 2845,
+          "expression": {
+            "type": "CallExpression",
+            "start": 2782,
+            "end": 2844,
+            "callee": {
+              "type": "Identifier",
+              "start": 2782,
+              "end": 2790,
+              "name": "triangle"
+            },
+            "arguments": [
+              {
+                "type": "Identifier",
+                "start": 2791,
+                "end": 2800,
+                "name": "halfWidth"
+              },
+              {
+                "type": "Literal",
+                "start": 2802,
+                "end": 2803,
+                "value": 0,
+                "raw": "0"
+              },
+              {
+                "type": "Identifier",
+                "start": 2805,
+                "end": 2816,
+                "name": "canvasWidth"
+              },
+              {
+                "type": "Literal",
+                "start": 2818,
+                "end": 2819,
+                "value": 0,
+                "raw": "0"
+              },
+              {
+                "type": "Identifier",
+                "start": 2821,
+                "end": 2832,
+                "name": "canvasWidth"
+              },
+              {
+                "type": "Identifier",
+                "start": 2834,
+                "end": 2843,
+                "name": "halfWidth"
+              }
+            ]
+          }
+        },
+        {
+          "type": "ExpressionStatement",
+          "start": 2848,
+          "end": 2933,
+          "expression": {
+            "type": "CallExpression",
+            "start": 2848,
+            "end": 2932,
+            "callee": {
+              "type": "Identifier",
+              "start": 2848,
+              "end": 2856,
+              "name": "triangle"
+            },
+            "arguments": [
+              {
+                "type": "Identifier",
+                "start": 2857,
+                "end": 2866,
+                "name": "halfWidth"
+              },
+              {
+                "type": "Identifier",
+                "start": 2868,
+                "end": 2880,
+                "name": "canvasHeight"
+              },
+              {
+                "type": "Identifier",
+                "start": 2882,
+                "end": 2893,
+                "name": "canvasWidth"
+              },
+              {
+                "type": "Identifier",
+                "start": 2895,
+                "end": 2907,
+                "name": "canvasHeight"
+              },
+              {
+                "type": "Identifier",
+                "start": 2909,
+                "end": 2920,
+                "name": "canvasWidth"
+              },
+              {
+                "type": "Identifier",
+                "start": 2922,
+                "end": 2931,
+                "name": "halfWidth"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+]
