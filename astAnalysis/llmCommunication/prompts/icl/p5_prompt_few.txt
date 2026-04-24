@@ -1,0 +1,113 @@
+### Role
+You are a technical expert in p5.js and Creative Coding. Your goal is to analyze the provided p5.js sketch and classify it according to the framework below by identifying specific p5.js functions and logic patterns.
+
+### 1. Material and Processes
+- **processed_audio**: Look for `loadSound()` or `p5.AudioIn`.
+- **processed_image**: Look for `loadImage()`, `get()`, `pixels[]`, or `createVideo()`.
+- **processed_text**: Look for `loadStrings()` or large hardcoded arrays of strings being manipulated.
+- **synthesized_sound**: Look for `p5.Oscillator`, `p5.Noise`, `p5.Env`, or `p5.MonoSynth`.
+- **synthesized_image**: Default for p5.js. Look for primitives (`rect`, `ellipse`), `beginShape()`, or `set()` in the `draw` loop.
+- **synthesized_text**: Look for text generated via Markov chains, `char()` math, or algorithmic concatenation.
+- **randomness**: Identify `random()`, `noise()`, `randomSeed()`, or `noiseSeed()`.
+- **internal_modulation**: Identify variables from one domain driving another (e.g., `mic.getLevel()` driving a `rect` width, or an FFT analysis driving color).
+
+### 2. Environmental Interaction
+- **human_interaction**: Look for `mouseX`, `mouseY`, `mousePressed()`, `keyPressed()`, `key`, or `touchX`.
+- **computer_interaction**: Look for `loadJSON()` or `loadTable()` from external URLs/APIs, or serial communication.
+- **none**: If none of the above are present.
+
+### 3. Sensory Outcomes
+- **visual / auditory / physical**: Select based on `p5.sound` usage or visual drawing functions.
+- **static**: The sketch is a steady state. 
+    * Indicators: `noLoop()` in setup, or a `draw()` loop that doesn't use `frameCount`, `millis()`, or accumulative arrays. 
+    * Note: Simple oscillations (e.g., `sin(frameCount)`) are still considered "static" in this framework.
+- **time_based**: The sketch has a narrative, growth, or "memory."
+    * Indicators: Elements are added to an array every frame (`push()`), a `timer` variable triggers state changes, or the canvas never clears (`noBackground()` in draw), causing visual accumulation.
+
+---
+
+### Strict Output Requirements
+1. **p5.js Audit:** List the specific p5.js keywords found that justify your classification.
+2. **JSON Format:** Return ONLY a JSON object with these exact keys:
+
+{
+  "p5_keywords_identified": [],
+  "material_and_processes": [],
+  "environmental_interaction": [],
+  "outcome": [],
+  "logic_explanation": "Explain the state-management (e.g., 'The use of push() in draw causes visual accumulation, making it time_based').",
+  "algorithm_signature": "Identify if it uses a known pattern: Flow Field, L-System, Particle System, Cellular Automata, etc."
+}
+
+### Code to Analyze
+**File:** {file_name}
+**Content:**
+{artwork}
+
+### Examples for Calibration
+
+Example 1: Static & Human Interaction
+```javascript
+function setup() {
+  createCanvas(400, 400);
+}
+function draw() {
+  background(220);
+  let d = dist(mouseX, mouseY, width/2, height/2);
+  fill(d, 100, 255);
+  ellipse(width/2, height/2, d);
+}
+```
+
+Expected JSON:
+```json
+{
+  "p5_keywords_identified": ["createCanvas", "background", "dist", "mouseX", "mouseY", "fill", "ellipse", "width", "height"],
+  "material_and_processes": ["synthesized_image"],
+  "environmental_interaction": ["human_interaction"],
+  "outcome": ["visual", "static"],
+  "logic_explanation": "The sketch uses mouseX/mouseY to drive circle size. It is 'static' because background() is called every frame and no state is accumulated; the visual complexity remains constant over time.",
+  "algorithm_signature": "Basic trigonometry/distance-based mapping."
+}
+```
+
+Example 2: Time-based & Randomness
+```javascript
+let walkers = [];
+function setup() {
+  createCanvas(800, 800);
+  background(0);
+}
+function draw() {
+  if (frameCount < 500) {
+    walkers.push({x: width/2, y: height/2});
+  }
+  for (let w of walkers) {
+    w.x += random(-2, 2);
+    w.y += random(-2, 2);
+    stroke(255, 10);
+    point(w.x, w.y);
+  }
+}
+```
+
+Expected JSON:
+
+```json
+{
+  "p5_keywords_identified": ["createCanvas", "background", "frameCount", "push", "random", "stroke", "point", "width", "height"],
+  "material_and_processes": ["synthesized_image", "randomness"],
+  "environmental_interaction": ["none"],
+  "outcome": ["visual", "time_based"],
+  "logic_explanation": "The sketch is 'time_based' because it accumulates data in an array ('walkers') and does not clear the background, leading to a permanent growth of visual elements that changes the state over time.",
+  "algorithm_signature": "Random Walk / Particle Accumulation."
+}
+```
+
+### Code to analyze
+(extension = {extension}, file_name = {file_name})
+Content:
+
+{artwork}
+
+Important: If the code uses `noBackground()` or does not call `background()` inside the draw loop, it is almost certainly time_based due to visual accumulation.
