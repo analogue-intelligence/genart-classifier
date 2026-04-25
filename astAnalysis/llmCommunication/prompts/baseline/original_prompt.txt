@@ -40,18 +40,19 @@ Important notes:
 3. Return a structured JSON as follows:
 
 ```json
-{{
+{
+  "p5_keywords_identified": [...],
   "material_and_processes": [...],
   "interaction": [...],
   "outcome": [...],
-  "explanation": [
+  "logic_explanation": [
     "Concise reasoning referencing variables, libraries, or functions in the code."
   ],
   "reuse_algorithm": "Brief note on algorithm reuse or novelty."
-}}
+}
 
 ### Code to analyze
-(extension = {extension}, file_name = {file_name})
-Content:
+(extension = {{.Extension}}, file_name = {{.File_name}})
 
-{artwork}
+Content:
+{{.Artwork}}

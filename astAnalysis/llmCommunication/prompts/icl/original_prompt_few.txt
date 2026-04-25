@@ -40,15 +40,16 @@ Important notes:
 3. Return a structured JSON as follows:
 
 ```json
-{{
+{
+  "p5_keywords_identified": [...],
   "material_and_processes": [...],
   "interaction": [...],
   "outcome": [...],
-  "explanation": [
+  "logic_explanation": [
     "Concise reasoning referencing variables, libraries, or functions in the code."
   ],
   "reuse_algorithm": "Brief note on algorithm reuse or novelty."
-}}
+}
 
 ### Examples for Calibration
 
@@ -70,10 +71,10 @@ Expected JSON:
 {
   "p5_keywords_identified": ["createCanvas", "background", "dist", "mouseX", "mouseY", "fill", "ellipse", "width", "height"],
   "material_and_processes": ["synthesized_image"],
-  "environmental_interaction": ["human_interaction"],
+  "interaction": ["human_interaction"],
   "outcome": ["visual", "static"],
   "logic_explanation": "The sketch uses mouseX/mouseY to drive circle size. It is 'static' because background() is called every frame and no state is accumulated; the visual complexity remains constant over time.",
-  "algorithm_signature": "Basic trigonometry/distance-based mapping."
+  "reuse_algorithm": "Basic trigonometry/distance-based mapping."
 }
 ```
 
@@ -103,17 +104,17 @@ Expected JSON:
 {
   "p5_keywords_identified": ["createCanvas", "background", "frameCount", "push", "random", "stroke", "point", "width", "height"],
   "material_and_processes": ["synthesized_image", "randomness"],
-  "environmental_interaction": ["none"],
+  "interaction": ["none"],
   "outcome": ["visual", "time_based"],
   "logic_explanation": "The sketch is 'time_based' because it accumulates data in an array ('walkers') and does not clear the background, leading to a permanent growth of visual elements that changes the state over time.",
-  "algorithm_signature": "Random Walk / Particle Accumulation."
+  "reuse_algorithm": "Random Walk / Particle Accumulation."
 }
 ```
 
 ### Code to analyze
-(extension = {extension}, file_name = {file_name})
+(extension = {{.Extension}}, file_name = {{.File_name}})
 Content:
 
-{artwork}
+{{.Artwork}}
 
 Important: If the code uses `noBackground()` or does not call `background()` inside the draw loop, it is almost certainly time_based due to visual accumulation.

@@ -1,0 +1,27 @@
+{
+  "p5_keywords_identified": ["mouse", "mouseX", "mouseY", "distance calculation", "color setting", "ellipse movement"],
+  "material_and_processes": {
+    "processed_audio": true,
+    "processed_image": true,
+    "processed_text": false
+  },
+  "interaction": ["interaction"],
+  "outcome": ["time_based", "visual", "static"],
+  "logic_explanation": [
+    "Uses mouse inputs to calculate distance and set colors, focusing on visual effects.",
+    "Generates dynamic ellipse shapes based on mouse position using mouse data, affecting the drawing effect."
+  ],
+  "algorithm_signature": "Brief note on algorithm reuse or novelty. This is a simple process with minimal algorithmic novelty."
+}
+
+// 8Billion
+{
+  "p5_keywords_identified": ["createCanvas", "setup", "draw", "dist", "background", "fill", "ellipse"],
+  "material_and_processes": ["synthesized_image"],
+  "interaction": ["human_interaction"],
+  "outcome": ["visual", "static"],
+  "logic_explanation": [
+    "The code uses the p5.js library to create an interactive visual artwork. Key variables like mouseX and mouseY capture user input, while functions such as dist(), background(), fill(), and ellipse() handle distance calculation, canvas clearing, color filling, and drawing the ellipse. The ellipse size dynamically adjusts based on the distance from the mouse to the canvas center, demonstrating basic generative art principles."
+  ],
+  "reuse_algorithm": "The algorithm reuses standard p5.js drawing and interactivity functions (e.g., dist() for distance calculation, ellipse() for drawing) without introducing novel or complex elements, relying on the library's built-in capabilities for simplicity."
+}
