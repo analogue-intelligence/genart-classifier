@@ -2,10 +2,12 @@ package main
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"log"
 	"os"
 	"path/filepath"
+	"strings"
 	"time"
 
 	"github.com/firebase/genkit/go/ai"
@@ -41,42 +43,58 @@ function draw() {
 
 var systemDefinition = "You are an expert evaluator of software-based artworks."
 
-var MODEL_NAME = "nebula/deepseek-r1:8b"
+// var MODEL_NAME = "nebula/deepseek-r1:8b"
+
+// var MODEL_NAME = "nebula/deepseek-r1:1.5b"
+var MODEL_NAME = "nebula/FAST.gemma3:12b"
+
+type ArtworkClassification struct {
+	P5Keywords        []string `json:"p5_keywords_identified"`
+	MaterialProcesses []string `json:"material_and_processes"`
+	Interaction       []string `json:"interaction"`
+	Outcome           []string `json:"outcomes"`
+	Explanation       string   `json:"logic_explanation"`
+	Algorithm         string   `json:"reuse_algorithm"`
+}
+
+type EnrichedArtworkClassification struct {
+	ArtworkClassification
+	InputTokens  int   `json:"input_tokens"`
+	OutputTokens int   `json:"output_tokens"`
+	LatencyMs    int64 `json:"latency_ms"`
+}
 
 func main() {
 	fmt.Println("Runing Script...")
 	ctx, g := setupLLMConfiguration()
 
-	outputSchema := map[string]any{
-		"material_and_processes": "",
-		"interaction":            "",
-		"outcome":                "",
-		"explanation":            "",
-		"reuse_algorithm":        "",
-	}
+	// outputSchema := map[string]any{
+	// 	"material_and_processes": "",
+	// 	"interaction":            "",
+	// 	"outcome":                "",
+	// 	"explanation":            "",
+	// 	"reuse_algorithm":        "",
+	// }
 
 	artworks_path := getArtworksPath()
 
-	readFolder(artworks_path, ctx, g, outputSchema)
+	readFolder(artworks_path, ctx, g)
 }
 
-func readFolder(artworks_path string, ctx context.Context, g *genkit.Genkit, outputSchema map[string]any) {
+func readFolder(artworks_path string, ctx context.Context, g *genkit.Genkit) {
 	err := filepath.WalkDir(artworks_path, func(filep string, info os.DirEntry, err error) error {
 		if !info.IsDir() && filepath.Ext(filep) == ".js" {
 			fmt.Println("Reading artwork: " + info.Name())
 
 			artworkSourceCode, err := os.ReadFile(filep)
-			// var response *ai.ModelResponse
+
 			if err != nil {
 				panic("Reading the content of the file doesn't work.")
 			}
-			response, errs := queryLLM(ctx, g, outputSchema, string(artworkSourceCode))
+			response, _ := queryLLM(ctx, g, string(artworkSourceCode), info.Name())
 
-			if errs != nil {
-				// try one more time
-				response, _ = queryLLM(ctx, g, outputSchema, string(artworkSourceCode))
-			}
 			processResponse(response, info.Name())
+			// return filepath.SkipAll
 		}
 		return nil
 	})
@@ -88,7 +106,24 @@ func readFolder(artworks_path string, ctx context.Context, g *genkit.Genkit, out
 func processResponse(response *ai.ModelResponse, filename string) {
 	response_path := createFile(filename)
 
-	if err := os.WriteFile(response_path, []byte(response.Text()), 0644); err != nil {
+	var classification ArtworkClassification
+	response.Output(&classification)
+
+	usage := response.Usage // input/output token counts
+
+	enriched := EnrichedArtworkClassification{
+		ArtworkClassification: classification,
+		InputTokens:           usage.InputTokens,
+		OutputTokens:          usage.OutputTokens,
+		LatencyMs:             int64(response.LatencyMs),
+	}
+	data, err := json.Marshal(enriched)
+	if err != nil {
+		log.Println(err)
+	}
+
+	// if err := os.WriteFile(response_path, []byte(response.Text()), 0644); err != nil {
+	if err := os.WriteFile(response_path, []byte(data), 0644); err != nil {
 		panic(err)
 	}
 	fmt.Printf("Processed file: %v \n", filename)
@@ -101,14 +136,16 @@ func createFile(filename string) string {
 	}
 	outputPath := filepath.Join(rootPath, "LLM-output-"+MODEL_NAME)
 
-	// Owner (7) = 4 (read) + 2 (write) + 1 (execute): rwx
+	// Owner: rwx (7) = 4 (read) + 2 (write) + 1 (execute)
 	// Group: r-x (5) =  4 (read) + 0 (no write) + 1 (execute)
 	// Others: r-x (5) =  4 (read) + 0 (no write) + 1 (execute)
 	if err := os.MkdirAll(outputPath, 0755); err != nil {
 		panic(err)
 	}
 
-	response_path := filepath.Join(outputPath, filename)
+	tmp_path := filepath.Join(outputPath, filename)
+
+	response_path := strings.TrimSuffix(tmp_path, filepath.Ext(tmp_path)) + ".json"
 
 	return response_path
 }
@@ -129,24 +166,46 @@ func getRootPath() (string, error) {
 	return root_path, err
 }
 
-func queryLLM(ctx context.Context, g *genkit.Genkit, outputSchema map[string]any, artwork string) (*ai.ModelResponse, error) {
-	start := time.Now()
-	resp, err := genkit.Generate(ctx, g,
+func queryWithRetry(ctx context.Context, g *genkit.Genkit, maxRetries int, opts ...ai.GenerateOption) (*ai.ModelResponse, error) {
+	var lastErr error
+	for i := range maxRetries {
+		resp, err := genkit.Generate(ctx, g, opts...)
+		if err == nil {
+			return resp, nil
+		}
+		lastErr = err
+		log.Println("generation attempt failed, retrying", "attempt", i+1, "err", err)
+		time.Sleep(time.Duration(i+1) * 500 * time.Millisecond)
+	}
+	return nil, fmt.Errorf("all %d attempts failed: %w", maxRetries, lastErr)
+}
+
+func queryLLM(ctx context.Context, g *genkit.Genkit, artwork string, filename string) (*ai.ModelResponse, error) {
+	resp, err := queryWithRetry(ctx, g, 4,
 		ai.WithModelName(MODEL_NAME),
 		ai.WithSystem(systemDefinition),
-		ai.WithPrompt(BuildPrompt(artwork)),
-		ai.WithOutputSchema(outputSchema),
-		ai.WithConfig(map[string]any{
-			"Temperature": 0.0,
-		}),
+		ai.WithPrompt(BuildPrompt(artwork, filename)),
+		ai.WithOutputType(ArtworkClassification{}),
+		ai.WithConfig(map[string]any{"Temperature": 0.0}),
 	)
+
+	// resp, err := genkit.Generate(ctx, g,
+	// 	ai.WithModelName(MODEL_NAME),
+	// 	ai.WithSystem(systemDefinition),
+	// 	// ai.WithPrompt(BuildPrompt(artwork)),
+	// 	ai.WithPrompt(BuildPrompt(exampleProgram, filename)),
+	// 	// ai.WithOutputSchema(outputSchema),
+	// 	ai.WithOutputType(ArtworkClassification{}),
+	// 	ai.WithConfig(map[string]any{
+	// 		"Temperature": 0.0,
+	// 	}),
+	// )
+
 	if err != nil {
 		log.Println("error:", err)
-		// panic(err)
-		// resp := queryLLM(ctx, g, outputSchema, artwork)
 	}
-	duration := time.Since(start)
-	fmt.Printf("Duration: %v", duration)
+	fmt.Println(resp.Text())
+
 	return resp, err
 }
 
@@ -176,15 +235,17 @@ func setupLLMConfiguration() (context.Context, *genkit.Genkit) {
 	return ctx, g
 }
 
-func BuildPrompt(artwork string) string {
+func BuildPrompt(artwork string, filename string) string {
 	tmpl, _ := template.New("prompt").Parse(baselineTemplate)
 
 	var buf bytes.Buffer
 	data := map[string]interface{}{
 		"Artwork":   artwork,
 		"Extension": ".js",
-		"File_name": "bla",
+		"File_name": filename,
 	}
 	tmpl.Execute(&buf, data)
+
+	// fmt.Printf("PROMPT: \n %s", buf.String())
 	return buf.String()
 }
